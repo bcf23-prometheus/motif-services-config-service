@@ -1,7 +1,9 @@
 FROM amazoncorretto:17
 
-RUN mkdir -p /app/backend
+RUN mkdir -p /app
 
-COPY /target/config-service-0.0.1-SNAPSHOT.jar /app/backend
+WORKDIR /app
+
+COPY ./build/libs/config-service.jar /app
 
 CMD ["java", "-jar", "config-service.jar"]
